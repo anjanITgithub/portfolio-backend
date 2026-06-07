@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const messagesContainer = document.getElementById("messagesContainer");
 
     // Backend API URL (আপনার Node.js সার্ভারের লিংক)
-    const API_BASE_URL = "http://localhost:5000/api";
+    const API_BASE_URL = "https://portfolio-backend-ruio.onrender.com/api";
 
     // ---------------- UI Logic (Modals) ----------------
     adminBtn.addEventListener("click", () => { adminModal.style.display = "flex"; });
