@@ -6,7 +6,7 @@ function AdminDashboard({ isOpen, closeDashboard }) {
   // ড্যাশবোর্ড ওপেন হলেই ব্যাকএন্ড থেকে ডেটা আনবে
   useEffect(() => {
     if (isOpen) {
-      fetch('http://localhost:5000/api/messages')
+      fetch('https://portfolio-backend-ruio.onrender.com/api/messages')
         .then(res => res.json())
         .then(data => setMessages(data))
         .catch(err => console.error("Error fetching messages:", err));

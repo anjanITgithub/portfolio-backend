@@ -20,7 +20,7 @@ function Contact() {
 
     try {
       // তোমার লোকাল ব্যাকএন্ডের API লিংক
-      const response = await fetch('http://localhost:5000/api/contact', {
+      const response = await fetch('https://portfolio-backend-ruio.onrender.com/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
