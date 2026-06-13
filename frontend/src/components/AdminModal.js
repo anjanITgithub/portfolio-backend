@@ -11,7 +11,7 @@ function AdminModal({ isOpen, closeAdmin, onLoginSuccess }) {
 
     try {
       // তোমার আগের ভুল লিংকটি যদি '/api/admin/login' হয়, তবে তা বদলে এটা করো:
-const response = await fetch('https://portfolio-backend-ruio.onrender.com/api/login', { ;
+const response = await fetch('https://portfolio-backend-ruio.onrender.com/api/login', {;
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password }),
