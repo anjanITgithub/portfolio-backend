@@ -30,14 +30,13 @@ const Contact = mongoose.model('Contact', contactSchema);
 // --- ২. API Routes (লজিক) ---
 
 // রুট ১: কন্টাক্ট ফর্ম থেকে ডেটা রিসিভ করে সেভ করা (POST request)
-app.post('/api/contact', async (req, res) => {
+app.post('/api/login', async (req, res) => {
     try {
-        const { name, email, message } = req.body;
-        const newContact = new Contact({ name, email, message });
-        await newContact.save();
-        res.status(201).json({ success: true, message: "Message sent successfully!" });
+        const { username, password } = req.body;
+        // এখানে তোমার লগইন লজিক থাকবে...
     } catch (error) {
-        res.status(500).json({ success: false, message: "Server error. Failed to send message." });
+        console.error("Login Server Error:", error); // এটি লগে দেখাবে
+        res.status(500).json({ message: "Server error during login", details: error.message });
     }
 });
 
