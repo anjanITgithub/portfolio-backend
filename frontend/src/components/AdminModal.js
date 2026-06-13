@@ -6,15 +6,28 @@ function AdminModal({ isOpen, closeAdmin, onLoginSuccess }) {
 
   if (!isOpen) return null;
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    // ডেমো লগইন চেক 
-    if (username === 'anjanmukherjee' && password === 'Matarani@98') {
-        onLoginSuccess(); // লগইন সফল হলে App.js-কে জানাবে
+
+    try {
+      const response = await fetch('https://portfolio-backend-ruio.onrender.com/api/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        onLoginSuccess(); // লগইন সফল হলে ড্যাশবোর্ড দেখাবে
         setUsername('');
         setPassword('');
-    } else {
-        alert('ভুল ইউজারনেম বা পাসওয়ার্ড!');
+      } else {
+        alert(data.message || 'ভুল ইউজারনেম বা পাসওয়ার্ড!');
+      }
+    } catch (error) {
+      alert('সার্ভারে সমস্যা হচ্ছে, একটু পর আবার চেষ্টা করো!');
+      console.error("Login Error:", error);
     }
   };
 
